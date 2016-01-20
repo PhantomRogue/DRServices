@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeastiaryQuery", "BeastiaryQuery\BeastiaryQuery.csproj", "{CFD3135E-078A-46D0-A80A-F597347DF96B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DRServices", "DRServices\DRServices.csproj", "{BF8395DF-B8D1-40AB-BB49-D1407810F708}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFD3135E-078A-46D0-A80A-F597347DF96B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFD3135E-078A-46D0-A80A-F597347DF96B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFD3135E-078A-46D0-A80A-F597347DF96B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFD3135E-078A-46D0-A80A-F597347DF96B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF8395DF-B8D1-40AB-BB49-D1407810F708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF8395DF-B8D1-40AB-BB49-D1407810F708}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF8395DF-B8D1-40AB-BB49-D1407810F708}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF8395DF-B8D1-40AB-BB49-D1407810F708}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

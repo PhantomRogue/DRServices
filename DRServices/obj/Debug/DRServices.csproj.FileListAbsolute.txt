@@ -1,0 +1,16 @@
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\DRServices\bin\Debug\DRServices.dll
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\DRServices\bin\Debug\DRServices.pdb
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\DRServices\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\DRServices\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\DRServices\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\DRServices\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\DRServices\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\DRServices\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.pdb
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\DRServices\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\DRServices\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.pdb
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\DRServices\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\DRServices\bin\Debug\Microsoft.Practices.Unity.pdb
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\DRServices\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\DRServices\bin\Debug\Microsoft.Practices.Unity.Interception.pdb
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\DRServices\obj\Debug\DRServices.dll
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\DRServices\obj\Debug\DRServices.pdb

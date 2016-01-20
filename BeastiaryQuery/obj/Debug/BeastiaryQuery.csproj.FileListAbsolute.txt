@@ -1,0 +1,15 @@
+c:\users\wahlra\documents\visual studio 2010\Projects\BeastiaryQuery\BeastiaryQuery\obj\Debug\BeastiaryQuery.csprojResolveAssemblyReference.cache
+c:\users\wahlra\documents\visual studio 2010\Projects\BeastiaryQuery\BeastiaryQuery\obj\Debug\BeastiaryQuery.DisplayForm.resources
+c:\users\wahlra\documents\visual studio 2010\Projects\BeastiaryQuery\BeastiaryQuery\obj\Debug\BeastiaryQuery.csproj.GenerateResource.Cache
+c:\users\wahlra\documents\visual studio 2010\Projects\BeastiaryQuery\BeastiaryQuery\bin\Debug\BeastiaryQuery.dll
+c:\users\wahlra\documents\visual studio 2010\Projects\BeastiaryQuery\BeastiaryQuery\bin\Debug\BeastiaryQuery.pdb
+c:\users\wahlra\documents\visual studio 2010\Projects\BeastiaryQuery\BeastiaryQuery\bin\Debug\Interfaces.dll
+c:\users\wahlra\documents\visual studio 2010\Projects\BeastiaryQuery\BeastiaryQuery\obj\Debug\BeastiaryQuery.dll
+c:\users\wahlra\documents\visual studio 2010\Projects\BeastiaryQuery\BeastiaryQuery\obj\Debug\BeastiaryQuery.pdb
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\BeastiaryQuery\bin\Debug\BeastiaryQuery.dll
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\BeastiaryQuery\bin\Debug\BeastiaryQuery.pdb
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\BeastiaryQuery\obj\Debug\BeastiaryQuery.csprojResolveAssemblyReference.cache
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\BeastiaryQuery\obj\Debug\BeastiaryQuery.DisplayForm.resources
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\BeastiaryQuery\obj\Debug\BeastiaryQuery.csproj.GenerateResource.Cache
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\BeastiaryQuery\obj\Debug\BeastiaryQuery.dll
+C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\BeastiaryQuery\obj\Debug\BeastiaryQuery.pdb
