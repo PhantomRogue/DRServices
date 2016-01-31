@@ -5,26 +5,70 @@ using System.Text;
 using GeniePlugin.Interfaces;
 using System.Net;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace BeastiaryQuery
 {
+ 
+   
+       /// <summary>
+        /// The creature class.
+        /// Contains information on a creature
+        /// </summary>
+    public class Creature
+    {
+        public String FullName { get; set; }
+        public int MinSkills { get; set; }
+        public int MaxSkills { get; set; }
+        public String FullURL { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the Creature class
+        /// </summary>
+        /// <param name="name">name of the creature</param>
+        /// <param name="url">full url of the creature</param>
+        /// <param name="minskills">minimum skills to play</param>
+        /// <param name="maxskills">maximum that the creature trains</param>
+        public Creature(String name, String fullurl, int minskills, int maxskills)
+        {
+            FullName = name;
+            FullURL = fullurl;
+            MinSkills = minskills;
+            MaxSkills = maxskills;
+        }
+        public Creature()
+        {
+
+        }
+        public override string ToString()
+        {
+            string sReturn = string.Empty;
+            sReturn += FullName.PadRight(40) + "\t" ;
+            sReturn += (MinSkills + "-" + MaxSkills).PadRight(20) + "\t";
+            //sReturn += FullURL.PadLeft(10);
+            //return " \"" + String.Format("{0,-30}{1,-150} {2}-{3}", FullName, FullURL, MinSkills, MaxSkills) + "\"";
+            return "\"" + sReturn + "\"";
+        }
+    }
+
+
     public class BeastiaryQuery : GeniePlugin.Interfaces.IPlugin
     {
         private GeniePlugin.Interfaces.IHost m_Host;
         private string sHashValue = string.Empty;
 
-        private void GetJsonFromEPedia()
+        private void GetJsonFromEPedia(string sValue, bool bCustomAverage)
         {
             string[] separators = { ",", ".", "!", "?", ";", ":", " " };
-            string value = "\bq Light_Edge Medium_Edge Evasion Defending Box Gems backstab skin undead construct";
-
-            string sBaseURL = @"https://elanthipedia.play.net/mediawiki/index.php?title=Special:Ask&limit=20&q={0}p=format%3Djson&po=%3FMinSkillCap+is%3DMin+Skill%0A%3FMaxSkillCap+is%3DMax+Skill%0A&eq=yes";
+            string value = sValue;
+            
+            string sBaseURL = @"https://elanthipedia.play.net/mediawiki/index.php?title=Special:Ask&q={0}&p=format%3Djson&po=%3FMinSkillCap+is%3DMin+Skill%0A%3FMaxSkillCap+is%3DMax+Skill%0A&eq=yes";
 
             string sQuery = string.Empty;
 
             string sBaseQuery = "[[Creature {0}::true]]";
 
-            string sSkillBase = "[[MinSkillCap is::<{0}]][[MaxSkillCap is::>{1}]]";
+            string sSkillBase = "[[MinSkillCap is::<{0}]][[MaxSkillCap is::>{1}]][[MaxSkillCap is::!0]]";
 
             // Average of Offenses and Defenses.  Will add 100 to this Value to determine the "Max Cap, so it returns a range not too out of scope
             int iDefOffAvg = 0;
@@ -37,27 +81,33 @@ namespace BeastiaryQuery
                 string sLower = s.ToLower();
                 switch (sLower)
                 {
-                    case "light_crossbow":
-                    case "heavy_crossbow":
-                    case "short_bow":
-                    case "long_bow":
-                    case "composite_bow":
-                    case "light_thrown":
-                    case "heavy_thrown":
-                    case "halberd":
+                    case "shield_usage":
+                    case "light_armor":
+                    case "chain_armor":
+                    case "brigadine":
+                    case "plate_armor":
+                    case "defending":
+                    case "evasion":
+                    case "stealth":
+                    case "targetted_magic":
+                    case "primary_magic":
+                    case "debilitation":
+                    case "bows":
                     case "brawling":
-                    case "light_edged":
-                    case "heavy_edged":
-                    case "twohanded_edged":
-                    case "twohanded_blunt":
-                    case "light_blunt":
-                    case "medium_blunt":
-                    case "heavy_blunt":
-                    case "medium_edged":
-                    case "quarter_staff":
-                    case "short_stff":
-                    case "pikes":
+                    case "crossbows":
+                    case "expertise":
+                    case "heavy_thrown":
+                    case "large_blunt":
+                    case "large_edged":
+                    case "light_thrown":
                     case "offhand_weapon":
+                    case "polearms":
+                    case "slings":
+                    case "small_blunt":
+                    case "small_edged":
+                    case "staves":
+                    case "twohanded_blunt":
+                    case "twohanded_edged":
                         iDefOffAvg += int.Parse(this.m_Host.get_Variable(s + ".Ranks"));
                         iDefOffCnt++;
                         break;
@@ -86,12 +136,26 @@ namespace BeastiaryQuery
                 }
             }
 
-            // Average it and add it to the sSkillBase
-            iDefOffAvg = iDefOffAvg / iDefOffCnt;
-            sSkillBase = string.Format(sSkillBase, iDefOffAvg.ToString());
+            // If we have a Custom Average, time to Ignore your skillset
+            if (bCustomAverage)
+            {
+                // Average it and add it to the sSkillBase
+                iDefOffAvg = int.Parse(sValue);
+                sSkillBase = string.Format(sSkillBase, iDefOffAvg.ToString(), (iDefOffAvg * 1.5).ToString());
 
-            sBaseURL = string.Format(sBaseURL, sSkillBase + sQuery);
+                sBaseURL = string.Format(sBaseURL, sSkillBase + sQuery);               
+            }
+            else
+            {
+                // Average it and add it to the sSkillBase
+                iDefOffAvg = iDefOffAvg / iDefOffCnt;
+                sSkillBase = string.Format(sSkillBase, iDefOffAvg.ToString(), (iDefOffAvg * 1.5).ToString());
 
+                sBaseURL = string.Format(sBaseURL, sSkillBase + sQuery);
+
+            }
+
+            
             HttpWebRequest wrEPedia = (HttpWebRequest)WebRequest.Create(sBaseURL);
             wrEPedia.Method = WebRequestMethods.Http.Get;
             wrEPedia.Accept = "application/json";
@@ -103,68 +167,25 @@ namespace BeastiaryQuery
                 text = sr.ReadToEnd();
             }
 
-            string sVars = "{" + ((string)text).Remove(0, ((string)text).IndexOf("results"));
-        }
+            dynamic jsonTest = JsonConvert.DeserializeObject<dynamic>(text);
+            Dictionary<String, dynamic> creatures = JsonConvert.DeserializeObject<Dictionary<String, dynamic>>(jsonTest.results.ToString().Replace("[", "").Replace("]", ""));
 
-        public class JsonHelper
-        {
-            private const string INDENT_STRING = "    ";
-            public static string FormatJson(string str)
+            List<Creature> creatureList = new List<Creature>();
+            foreach (dynamic creatureJson in creatures.Values)
             {
-                var indent = 0;
-                var quoted = false;
-                var sb = new StringBuilder();
-                for (var i = 0; i < str.Length; i++)
-                {
-                    var ch = str[i];
-                    switch (ch)
-                    {
-                        case '{':
-                        case '[':
-                            sb.Append(ch);
-                            if (!quoted)
-                            {
-                                sb.AppendLine();
-                                Enumerable.Range(0, ++indent).ForEach(item => sb.Append(INDENT_STRING));
-                            }
-                            break;
-                        case '}':
-                        case ']':
-                            if (!quoted)
-                            {
-                                sb.AppendLine();
-                                Enumerable.Range(0, --indent).ForEach(item => sb.Append(INDENT_STRING));
-                            }
-                            sb.Append(ch);
-                            break;
-                        case '"':
-                            sb.Append(ch);
-                            bool escaped = false;
-                            var index = i;
-                            while (index > 0 && str[--index] == '\\')
-                                escaped = !escaped;
-                            if (!escaped)
-                                quoted = !quoted;
-                            break;
-                        case ',':
-                            sb.Append(ch);
-                            if (!quoted)
-                            {
-                                sb.AppendLine();
-                                Enumerable.Range(0, indent).ForEach(item => sb.Append(INDENT_STRING));
-                            }
-                            break;
-                        case ':':
-                            sb.Append(ch);
-                            if (!quoted)
-                                sb.Append(" ");
-                            break;
-                        default:
-                            sb.Append(ch);
-                            break;
-                    }
-                }
-                return sb.ToString();
+                String name = creatureJson.fulltext;
+                String url = creatureJson.fullurl;
+                int min = creatureJson.printouts["Min Skill"];
+                int max = creatureJson.printouts["Max Skill"];
+                creatureList.Add(new Creature(name, url, min, max));
+            }
+
+            // Time to send the Output to the Screen
+            // Overriding the ToString output of the Creature Class
+
+            foreach (Creature c in creatureList)
+            {
+                this.m_Host.SendText(@"#echo >CreatureList " + c.ToString());
             }
         }
 
@@ -190,9 +211,9 @@ namespace BeastiaryQuery
 
         void IPlugin.Initialize(IHost Host)
         {
-            //GetJsonFromEPedia();
-            string sNames = this.m_Host.get_Variable("charactername") + "_" + Environment.MachineName;
-            
+            this.m_Host = Host;
+
+            this.m_Host.SendText("test");
             int x = GetHashCode();
 
         }
@@ -209,6 +230,21 @@ namespace BeastiaryQuery
 
         string IPlugin.ParseInput(string Text)
         {
+            // Check if we have a bq Command
+            if(Text.StartsWith("/bq "))
+            {
+                GetJsonFromEPedia(Text.Remove(0, 4), false);
+            }
+            if (Text.StartsWith("/bqt "))
+            {
+                this.m_Host.SendText("#window add CreatureList");
+                this.m_Host.SendText("#window show CreatureList");
+                this.m_Host.SendText("#echo >CreatureList @suspend@");
+
+                // Testing the BQ
+                GetJsonFromEPedia(Text.Remove(0, 5), true);
+            }
+
             return Text;
         }
 

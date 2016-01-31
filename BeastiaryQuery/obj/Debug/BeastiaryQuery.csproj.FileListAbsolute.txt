@@ -13,3 +13,13 @@ C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery
 C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\BeastiaryQuery\obj\Debug\BeastiaryQuery.csproj.GenerateResource.Cache
 C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\BeastiaryQuery\obj\Debug\BeastiaryQuery.dll
 C:\Users\wahlra\Documents\Visual Studio 2010\Projects\BeastiaryQuery\EPediaQuery\BeastiaryQuery\obj\Debug\BeastiaryQuery.pdb
+C:\Users\Rico\Source\Repos\DRServices\BeastiaryQuery\bin\Debug\BeastiaryQuery.dll
+C:\Users\Rico\Source\Repos\DRServices\BeastiaryQuery\bin\Debug\BeastiaryQuery.pdb
+C:\Users\Rico\Source\Repos\DRServices\BeastiaryQuery\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Rico\Source\Repos\DRServices\BeastiaryQuery\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Rico\Source\Repos\DRServices\BeastiaryQuery\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Rico\Source\Repos\DRServices\BeastiaryQuery\obj\Debug\BeastiaryQuery.csprojResolveAssemblyReference.cache
+C:\Users\Rico\Source\Repos\DRServices\BeastiaryQuery\obj\Debug\BeastiaryQuery.DisplayForm.resources
+C:\Users\Rico\Source\Repos\DRServices\BeastiaryQuery\obj\Debug\BeastiaryQuery.csproj.GenerateResource.Cache
+C:\Users\Rico\Source\Repos\DRServices\BeastiaryQuery\obj\Debug\BeastiaryQuery.dll
+C:\Users\Rico\Source\Repos\DRServices\BeastiaryQuery\obj\Debug\BeastiaryQuery.pdb
